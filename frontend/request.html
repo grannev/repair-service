@@ -10,29 +10,97 @@
 </head>
 <body>
 
-    <div>
-        <a href="./"><img src="images/logo.jpg" alt="remont-co" width="450" height="150"></a>
-        <div>
-            <a href="./about.html">О нас</a>
-            <a href="./request.html">Заявка на ремонт</a>
-            <a href="./faq.html" title="часто задаваемые вопросы">FAQ</a>
-            <a href="./donate.html" title="пожертвования на продолжение работы">Поддержать</a>
-            <a href="./reviews.html" title="книга отзывов">Отзывы</a>
-            <a href="./license.html">Публичная лицензия</a>
-        </div>
+    <div class="header">
+        <a href="./"><img src="images/logo.png" alt="remont-co" width="150" height="150"></a>
+        <span class="site-name">Remont-Co</span>
     </div>
 
-    <h2>Seriously, it takes minimal fucking effort to improve this shit.</h2>
-    <p><strong>7 fucking declarations.</strong></p>
-    <ul>
-        <li>Shit's <em>still</em> lightweight and loads fast</li>
-        <li><em>Still</em> fits on all your shitty screens</li>
-        <li><em>Still</em> looks the same in all your shitty browsers</li>
-        <li>The motherfucker's <em>still</em> accessible to every asshole that visits your site</li>
-        <li>Shit's <em>still</em> legible and gets your fucking point across</li>
-    </ul>
+    <div class="main-menu">
+        <a href="./about.html">О нас</a>
+        <a href="./request.html">Заявка на ремонт</a>
+        <a href="./faq.html" title="часто задаваемые вопросы">FAQ</a>
+        <a href="./donate.html" title="пожертвования на продолжение работы">Поддержать</a>
+        <a href="./reviews.html" title="книга отзывов">Отзывы</a>
+        <a href="./contacts.html">Связаться с нами</a>
+        <a href="./license.html">Публичная лицензия</a>
+    </div>
 
-    <div>
+    <div class="main">
+        <h2>Заявка на ремонт</h2>
+        <p>Опишите, что сломалось, и мы свяжемся с вами в течение рабочего дня, чтобы
+        договориться о времени, когда вы принесёте технику. Диагностика бесплатная.
+        Ответы на частые вопросы — в разделе <a href="./faq.html">FAQ</a>.</p>
+        <p>Поля, отмеченные <span class="req">*</span>, обязательны для заполнения.</p>
+
+        <form class="request-form" action="/api/repair-request" method="post">
+            <fieldset>
+                <legend>Контактные данные</legend>
+
+                <div class="field">
+                    <label for="name">Имя <span class="req">*</span></label>
+                    <input type="text" id="name" name="name" required="required" />
+                </div>
+
+                <div class="field">
+                    <label for="phone">Телефон <span class="req">*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required="required" />
+                </div>
+
+                <div class="field">
+                    <label for="email">Электронная почта</label>
+                    <input type="email" id="email" name="email" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Техника и неисправность</legend>
+
+                <div class="field">
+                    <label for="device">Тип техники <span class="req">*</span></label>
+                    <select id="device" name="device" required="required">
+                        <option value="">- выберите -</option>
+                        <option value="computer">Ноутбук или компьютер</option>
+                        <option value="phone">Смартфон или планшет</option>
+                        <option value="appliance">Мелкая бытовая техника</option>
+                        <option value="audio">Аудиотехника</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="model">Производитель и модель</label>
+                    <input type="text" id="model" name="model" placeholder="Например, Lenovo IdeaPad 3" />
+                </div>
+
+                <div class="field">
+                    <label for="problem">Что случилось? <span class="req">*</span></label>
+                    <textarea id="problem" name="problem" rows="6" cols="40" required="required"
+                        placeholder="Опишите неисправность: что не работает, когда и после чего это началось"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="check">
+                <input type="checkbox" id="discount" name="discount" value="yes" />
+                <label for="discount">Я пенсионер, студент или член многодетной семьи —
+                хочу ремонт по себестоимости</label>
+            </div>
+
+            <div class="check">
+                <input type="checkbox" id="consent" name="consent" value="yes" required="required" />
+                <label for="consent">Согласен на обработку персональных данных
+                <span class="req">*</span></label>
+            </div>
+
+            <div class="submit">
+                <input type="submit" value="Отправить заявку" />
+            </div>
+        </form>
+
+        <p>Удобнее позвонить или написать? Все контакты — на странице
+        <a href="./contacts.html">«Связаться с нами»</a>.</p>
+    </div>
+
+    <div class="footer">
         <p>Авторские права © Remont-Co, 2026 - 2030</p>
     </div>   
 
